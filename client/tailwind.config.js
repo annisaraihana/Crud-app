@@ -16,6 +16,14 @@ module.exports = {
       fontFamily: {
         poppins: "'Poppins', sans-serif",
         playfair: "'Playfair Display', serif;"
+      },
+      fontSize:{
+        'judul1':['40px','45px'],
+        'judul2':['20px','22px'],
+        'teks1':['15px','17px']
+      },
+      backgroundImage: {
+        'l-pattern': "url('/src/assets/background.png')"
       }
     },
   },
