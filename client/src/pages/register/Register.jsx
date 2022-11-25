@@ -2,8 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/navbar/NavBar";
-import Lookist from "../../assets/lookist.png"
-import "./register.css";
+import Lookist from "../../assets/lookist.png";
 
 export default function Register() {
   const [username, setUsername] = useState("");
