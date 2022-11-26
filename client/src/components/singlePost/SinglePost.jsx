@@ -1,8 +1,9 @@
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
+import TextareaAutosize from 'react-textarea-autosize';
 
 
 export default function SinglePost() {
@@ -14,6 +15,8 @@ export default function SinglePost() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
+
+
 
   useEffect(() => {
     const getPost = async () => {
@@ -55,7 +58,7 @@ export default function SinglePost() {
           <input
             type="text"
             value={title}
-            className="m-3 text-playfair text-3xl text-center border-none border-b-2 border-b-slate-400 focus:outline-none"
+            className="m-3 text-playfair text-3xl text-center border-none border-b-2 border-b-slate-400 focus:outline-none bg-biru-abu"
             autoFocus
             onChange={(e) => setTitle(e.target.value)}
           />
@@ -88,8 +91,8 @@ export default function SinglePost() {
           </span>
         </div>
         {updateMode ? (
-          <textarea
-            className="border-none text-lg leading-6 focus:outline-none"
+          <TextareaAutosize
+            className="border-none text-lg leading-6 focus:outline-none bg-biru-abu"
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
           />
@@ -97,7 +100,7 @@ export default function SinglePost() {
           <p className="text-lg first-letter:ml-5 first-letter:text-3xl first-letter:font-semibold">{desc}</p>
         )}
         {updateMode && (
-          <button className="w-[100px] border-none bg-teal-600 p-1 text-white rounded-md cursor-pointer self-end mt-5" onClick={handleUpdate}>
+          <button className="w-[100px] border-none bg-biru-tombol p-1 text-white rounded-md cursor-pointer self-end mt-5" onClick={handleUpdate}>
             Update
           </button>
         )}
