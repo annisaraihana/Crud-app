@@ -68,7 +68,7 @@ export default function SinglePost() {
             {post.username === user?.username && (
               <div className="float-right text-base">
                 <i
-                  className="ml-3 cursor-pointer text-teal-600 far fa-edit"
+                  className="ml-3 cursor-pointer text-blue-500 far fa-edit"
                   onClick={() => setUpdateMode(true)}
                 ></i>
                 <i
@@ -82,7 +82,7 @@ export default function SinglePost() {
         <div className="mb-5 flex justify-between text-base text-kuning">
           <span className="singlePostAuthor">
             Author:
-            <Link to={`/?user=${post.username}`} className="link">
+            <Link to={`/?user=${post.username}`} className="link hover:text-kuning">
               <b> {post.username}</b>
             </Link>
           </span>
@@ -92,12 +92,12 @@ export default function SinglePost() {
         </div>
         {updateMode ? (
           <TextareaAutosize
-            className="border-none text-lg leading-6 focus:outline-none bg-biru-abu"
+            className="border-none text-playfair text-lg leading-6 focus:outline-none bg-biru-abu"
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
           />
         ) : (
-          <p className="text-lg first-letter:ml-5 first-letter:text-3xl first-letter:font-semibold">{desc}</p>
+          <p className="text-lg text-playfair first-letter:ml-5 first-letter:text-3xl first-letter:font-semibold">{desc}</p>
         )}
         {updateMode && (
           <button className="w-[100px] border-none bg-biru-tombol p-1 text-white rounded-md cursor-pointer self-end mt-5" onClick={handleUpdate}>
