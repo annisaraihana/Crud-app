@@ -59,7 +59,7 @@ export default function Write() {
             />
           </div>
           <div className="flex ml-36 item-center">
-            <TextareaAutosize
+            <textarea
               placeholder="Tell your story..."
               type="text"
               className="text-xl h-[100vw] border-none p-5 w-[70vw] focus:outline-none bg-biru-abu"

@@ -1,7 +1,8 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import L from "../../assets/L.png";
+import profileimage from "../../assets/profile.png";
 
 export default function NavBar() {
   const { user, dispatch } = useContext(Context);

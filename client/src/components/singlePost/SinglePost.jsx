@@ -82,8 +82,8 @@ export default function SinglePost() {
         <div className="mb-5 flex justify-between text-base text-kuning">
           <span className="singlePostAuthor">
             Author:
-            <Link to={`/?user=${post.username}`} className="link hover:text-kuning">
-              <b> {post.username}</b>
+            <Link to={`/?user=${post.username}`} className="link ">
+              <b className="hover:text-kuning"> {post.username}</b>
             </Link>
           </span>
           <span className="singlePostDate">
