@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Ibnu from "../../assets/ibnu.png"
 
 
 export default function Sidebar() {
@@ -14,19 +15,34 @@ export default function Sidebar() {
     getCats();
   }, []);
   return (
-    <div className="sidebar m-5 p-7 bg-abu-abu rounded-lg flex flex-col items-center">
-      <div className="flex flex-col items-center">
-        <span className="m-2 p-1 w-4/5 border-y-white border-y-2 text-xs text-white font-semibold leading-5 text-center">ABOUT ME</span>
+    <div className="sidebar m-5 p-7 bg-abu-abu rounded-lg flex flex-col items-center h-[700px]">
+      <div className="flex flex-col items-start">
+        <span className="my-2 mx-auto p-1 w-4/5 border-y-white border-y-2 text-md text-white font-semibold leading-5 text-center items-center">Contact Us</span>
         <img
-          src="https://i.pinimg.com/236x/1e/3f/58/1e3f587572a7a7b20bbf1828595a1786--holiday-party-themes-holiday-gift-guide.jpg"
-          alt="" className="mt-4"
+          src={Ibnu}
+          alt="" className="mt-4 mx-auto"
         />
-        <p className="p-8">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui
-          necessitatibus nostrum illum reprehenderit.
+        <p className="px-2 mt-3 font-semibold items-start">
+          Want help?
         </p>
+        <p className="px-2 items-start">
+          We have friendly customer service resp on staff who are ready to help.
+        </p>
+        <a href="mailto: lookist2022@gmail.com" className="flex space-x-2 mt-4 px-2 items-start">
+          <i className="pt-1 fa-solid fa-envelope"></i>
+          <p className="px-2">
+            lookist2022@gmail.com
+          </p>
+        </a>
+        <p className="px-2 mt-4 font-semibold items-start">
+          Openration Hours :
+        </p>
+        <p className="px-2 items-start">
+          9am-6pm WIB
+        </p>
+
       </div>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center mt-3">
         <span className="m-2 p-1 w-4/5 border-y-white border-y-2 text-xs text-white font-semibold leading-5 text-center">CATEGORIES</span>
         <ul className="mb-8 list-none">
           {cats.map((c) => (
@@ -35,15 +51,6 @@ export default function Sidebar() {
             </Link>
           ))}
         </ul>
-      </div>
-      <div className="flex flex-col items-center">
-        <span className="m-2 p-1 w-4/5 border-y-white border-y-2 text-xs text-white font-semibold leading-5 text-center">FOLLOW US</span>
-        <div className="mt-4 w-[250px] flex items-center justify-center">
-          <i className="text-base ml-3 cursor-pointer fab fa-facebook-square"></i>
-          <i className="text-base ml-3 cursor-pointer fab fa-twitter-square"></i>
-          <i className="text-base ml-3 cursor-pointer fab fa-pinterest-square"></i>
-          <i className="text-base ml-3 cursor-pointer fab fa-instagram-square"></i>
-        </div>
       </div>
     </div>
   );

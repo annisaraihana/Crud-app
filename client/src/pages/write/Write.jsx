@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import axios from "axios";
 import { Context } from "../../context/Context";
 import NavBar from "../../components/navbar/NavBar";
+import TextareaAutosize from 'react-textarea-autosize';
 
 export default function Write() {
   const [title, setTitle] = useState("");
@@ -63,7 +64,7 @@ export default function Write() {
               type="text"
               className="text-xl h-[100vw] border-none p-5 w-[70vw] focus:outline-none bg-biru-abu"
               onChange={e => setDesc(e.target.value)}
-            ></textarea>
+            />
           </div>
           <button className="absolute top-5 right-[150px] text-white bg-biru-tombol p-[10px] border-none cursor-pointer text-base rounded-md hover:bg-kuning hover:text-black" type="submit">
             Publish

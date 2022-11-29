@@ -23,7 +23,7 @@ export default function NavBar() {
             </Link>
           </li>
           <li className="cursor-pointer hover:text-kuning">
-            <Link className="link" to="/">
+            <Link className="link" to="/about">
               ABOUT
             </Link>
           </li>

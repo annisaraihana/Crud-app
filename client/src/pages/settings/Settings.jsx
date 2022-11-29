@@ -2,6 +2,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import NavBar from "../../components/navbar/NavBar";
 import { useContext, useState } from "react";
 import { Context } from "../../context/Context";
+import profileimage from "../../assets/profile.png"
 import axios from "axios";
 
 export default function Settings() {
@@ -53,7 +54,7 @@ export default function Settings() {
             <label>Profile Picture</label>
             <div className="flex items-center my-2 mx-0">
               <img
-                src={file ? URL.createObjectURL(file) : PF + user.profilePic}
+                src={file ? profileimage + URL.createObjectURL(file) : PF + user.profilePic}
                 alt="" className="w-20 h-20 rounded-2xl object-cover"
               />
               <label htmlFor="fileInput">
