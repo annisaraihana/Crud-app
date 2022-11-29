@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import L from "../../assets/L.png";
-import profileimage from "../../assets/profile.png";
 
 export default function NavBar() {
   const { user, dispatch } = useContext(Context);
@@ -24,7 +23,7 @@ export default function NavBar() {
             </Link>
           </li>
           <li className="cursor-pointer hover:text-kuning">
-            <Link className="link" to="/">
+            <Link className="link" to="/about">
               ABOUT
             </Link>
           </li>
