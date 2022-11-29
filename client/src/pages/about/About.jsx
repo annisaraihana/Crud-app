@@ -9,7 +9,7 @@ export default function About() {
         <>
             <NavBar />
             <div>
-                <img src={Lookist} className="mt-2 ml-8"></img>
+                <img src={Lookist} className="mt-2 ml-8" alt='lookist logo'></img>
             </div>
             <div className='flex mx-8 mt-5'>
                 <div className='p-4 bg-abu-abu rounded-lg border-white text-justify text-2xl border w-3/4 h-64'>
@@ -19,8 +19,8 @@ export default function About() {
                     <p className='text-3xl font-bold underline'>
                         Tech Stack
                     </p>
-                    <img src={mern} alt="" className='scale-75 -translate-y-16' />
-                    <img src={styling} alt="" className='scale-75 -translate-y-36' />
+                    <img src={mern} alt="mern logos" className='scale-75 -translate-y-16' />
+                    <img src={styling} alt="styling framework" className='scale-75 -translate-y-36' />
                 </div>
             </div>
 
