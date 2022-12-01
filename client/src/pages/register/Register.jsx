@@ -19,7 +19,7 @@ export default function Register() {
         email,
         password,
       });
-      res.data && window.location.replace("https://lookist-api.vercel.app/api/login");
+      res.data && window.location.replace("/login");
     } catch (error) {
       if (
         error.response &&
