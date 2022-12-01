@@ -28,7 +28,7 @@ export default function Write() {
       } catch (err) { }
     }
     try {
-      const res = await axios.post("https://lookist-api.vercel.app/api/posts", newPost);
+      const res = await axios.post("https://localhost/api/posts", newPost);
       window.location.replace("https://lookist-api.vercel.app/api/post/" + res.data._id);
     } catch (err) { }
   };
