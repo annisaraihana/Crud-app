@@ -24,12 +24,12 @@ export default function Write() {
       data.append("file", file);
       newPost.photo = filename;
       try {
-        await axios.post("/upload", data);
+        await axios.post("https://lookist-api.vercel.app/api/upload", data);
       } catch (err) { }
     }
     try {
       const res = await axios.post("https://lookist-api.vercel.app/api/posts", newPost);
-      window.location.replace("https://lookist-api.vercel.app/api/post/" + res.data._id);
+      window.location.replace("/post/" + res.data._id);
     } catch (err) { }
   };
   return (
