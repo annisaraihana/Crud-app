@@ -20,7 +20,7 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get("https://lookist-api.vercel.app/api/posts/" + path);
+      const res = await axios.get("/posts/" + path);
       setPost(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
@@ -30,7 +30,7 @@ export default function SinglePost() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`https://lookist-api.vercel.app/api/posts/${post._id}`, {
+      await axios.delete(`/posts/${post._id}`, {
         data: { username: user.username },
       });
       window.location.replace("/");
@@ -39,7 +39,7 @@ export default function SinglePost() {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`https://lookist-api.vercel.app/api/posts/${post._id}`, {
+      await axios.put(`/posts/${post._id}`, {
         username: user.username,
         title,
         desc,

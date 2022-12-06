@@ -1,9 +1,10 @@
-import Sidebar from "../../components/sidebar/Sidebar";
-import NavBar from "../../components/navbar/NavBar";
+import axios from "axios";
 import { useContext, useState } from "react";
 import { Context } from "../../context/Context";
-import profileimage from "../../assets/profile.png"
-import axios from "axios";
+import Sidebar from "../../components/sidebar/Sidebar";
+import NavBar from "../../components/navbar/NavBar";
+
+
 
 export default function Settings() {
   const [file, setFile] = useState(null);
@@ -31,11 +32,11 @@ export default function Settings() {
       data.append("file", file);
       updatedUser.profilePic = filename;
       try {
-        await axios.post("https://lookist-api.vercel.app/api/upload", data);
+        await axios.post("/upload", data);
       } catch (err) { }
     }
     try {
-      const res = await axios.put("https://lookist-api.vercel.app/api/users/" + user._id, updatedUser);
+      const res = await axios.put("/users/" + user._id, updatedUser);
       setSuccess(true);
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
     } catch (err) {
@@ -54,7 +55,7 @@ export default function Settings() {
             <label>Profile Picture</label>
             <div className="flex items-center my-2 mx-0">
               <img
-                src={file ? profileimage + URL.createObjectURL(file) : PF + user.profilePic}
+                src={file ? URL.createObjectURL(file) : PF + user.profilePic}
                 alt="" className="w-20 h-20 rounded-2xl object-cover"
               />
               <label htmlFor="fileInput">
