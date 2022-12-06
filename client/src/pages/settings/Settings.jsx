@@ -1,8 +1,10 @@
-import Sidebar from "../../components/sidebar/Sidebar";
-import NavBar from "../../components/navbar/NavBar";
+import axios from "axios";
 import { useContext, useState } from "react";
 import { Context } from "../../context/Context";
-import axios from "axios";
+import Sidebar from "../../components/sidebar/Sidebar";
+import NavBar from "../../components/navbar/NavBar";
+
+
 
 export default function Settings() {
   const [file, setFile] = useState(null);
@@ -12,7 +14,7 @@ export default function Settings() {
   const [success, setSuccess] = useState(false);
 
   const { user, dispatch } = useContext(Context);
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://lookist-api.vercel.app/images/";
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -1,10 +1,12 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 import Header from "../../components/header/Header";
 import Posts from "../../components/posts/Posts";
 import Sidebar from "../../components/sidebar/Sidebar";
 import NavBar from "../../components/navbar/NavBar";
-import axios from "axios";
-import { useLocation } from "react-router";
+
+
 
 export default function Home() {
   const [posts, setPosts] = useState([]);

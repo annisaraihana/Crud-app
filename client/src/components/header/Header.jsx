@@ -1,4 +1,5 @@
 import Lookist from "../../assets/lookist.png"
+import headerimage from "../../assets/headerimage.jpg"
 
 export default function Header() {
   return (
@@ -8,7 +9,7 @@ export default function Header() {
       </div>
       <img
         className="mx-auto w-11/12 rounded-xl h-[450px] mt-2 object-cover"
-        src="https://source.unsplash.com/1000x650?book"
+        src={headerimage}
         alt=""
       />
     </div>

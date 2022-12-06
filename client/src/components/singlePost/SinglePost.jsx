@@ -1,19 +1,22 @@
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
+import TextareaAutosize from 'react-textarea-autosize';
 
 
 export default function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://lookist-api.vercel.app/images/";
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
+
+
 
   useEffect(() => {
     const getPost = async () => {
@@ -55,7 +58,7 @@ export default function SinglePost() {
           <input
             type="text"
             value={title}
-            className="m-3 text-playfair text-3xl text-center border-none border-b-2 border-b-slate-400 focus:outline-none"
+            className="m-3 text-playfair text-3xl text-center border-none border-b-2 border-b-slate-400 focus:outline-none bg-biru-abu"
             autoFocus
             onChange={(e) => setTitle(e.target.value)}
           />
@@ -65,7 +68,7 @@ export default function SinglePost() {
             {post.username === user?.username && (
               <div className="float-right text-base">
                 <i
-                  className="ml-3 cursor-pointer text-teal-600 far fa-edit"
+                  className="ml-3 cursor-pointer text-blue-500 far fa-edit"
                   onClick={() => setUpdateMode(true)}
                 ></i>
                 <i
@@ -79,8 +82,8 @@ export default function SinglePost() {
         <div className="mb-5 flex justify-between text-base text-kuning">
           <span className="singlePostAuthor">
             Author:
-            <Link to={`/?user=${post.username}`} className="link">
-              <b> {post.username}</b>
+            <Link to={`/?user=${post.username}`} className="link ">
+              <b className="hover:text-kuning"> {post.username}</b>
             </Link>
           </span>
           <span className="singlePostDate">
@@ -88,16 +91,16 @@ export default function SinglePost() {
           </span>
         </div>
         {updateMode ? (
-          <textarea
-            className="border-none text-lg leading-6 focus:outline-none"
+          <TextareaAutosize
+            className="border-none text-playfair text-lg leading-6 focus:outline-none bg-biru-abu"
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
           />
         ) : (
-          <p className="text-lg first-letter:ml-5 first-letter:text-3xl first-letter:font-semibold">{desc}</p>
+          <p className="text-lg text-playfair first-letter:ml-5 first-letter:text-3xl first-letter:font-semibold">{desc}</p>
         )}
         {updateMode && (
-          <button className="w-[100px] border-none bg-teal-600 p-1 text-white rounded-md cursor-pointer self-end mt-5" onClick={handleUpdate}>
+          <button className="w-[100px] border-none bg-biru-tombol p-1 text-white rounded-md cursor-pointer self-end mt-5" onClick={handleUpdate}>
             Update
           </button>
         )}

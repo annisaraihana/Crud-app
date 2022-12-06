@@ -5,7 +5,7 @@ import L from "../../assets/L.png";
 
 export default function NavBar() {
   const { user, dispatch } = useContext(Context);
-  const PF = "http://localhost:5000/images/"
+  const PF = "https://lookist-api.vercel.app/images/"
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
@@ -23,7 +23,7 @@ export default function NavBar() {
             </Link>
           </li>
           <li className="cursor-pointer hover:text-kuning">
-            <Link className="link" to="/">
+            <Link className="link" to="/about">
               ABOUT
             </Link>
           </li>
