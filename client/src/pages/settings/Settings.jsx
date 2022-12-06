@@ -13,7 +13,7 @@ export default function Settings() {
   const [success, setSuccess] = useState(false);
 
   const { user, dispatch } = useContext(Context);
-  const PF = "https://lookist-api.vercel.app/images/";
+  const PF = "http://localhost:5000/images/";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,11 +31,11 @@ export default function Settings() {
       data.append("file", file);
       updatedUser.profilePic = filename;
       try {
-        await axios.post("https://lookist-api.vercel.app/api/upload", data);
+        await axios.post("http://localhost:5000/api/upload", data);
       } catch (err) { }
     }
     try {
-      const res = await axios.put("https://lookist-api.vercel.app/api/users/" + user._id, updatedUser);
+      const res = await axios.put("http://localhost:5000s/api/users/" + user._id, updatedUser);
       setSuccess(true);
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
     } catch (err) {
@@ -54,7 +54,7 @@ export default function Settings() {
             <label>Profile Picture</label>
             <div className="flex items-center my-2 mx-0">
               <img
-                src={file ? profileimage + URL.createObjectURL(file) : PF + user.profilePic}
+                src={file ? URL.createObjectURL(file) : PF + user.profilePic}
                 alt="" className="w-20 h-20 rounded-2xl object-cover"
               />
               <label htmlFor="fileInput">

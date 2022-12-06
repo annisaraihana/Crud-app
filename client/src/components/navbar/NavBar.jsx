@@ -5,7 +5,7 @@ import L from "../../assets/L.png";
 
 export default function NavBar() {
   const { user, dispatch } = useContext(Context);
-  const PF = "https://lookist-api.vercel.app/images/"
+  const PF = "http://localhost:5000/images/"
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });

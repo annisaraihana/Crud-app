@@ -1,5 +1,5 @@
 import Lookist from "../../assets/lookist.png"
-import headerimage from "../../assets/headerimage.png"
+import headerimage from "../../assets/headerimage.jpg"
 
 export default function Header() {
   return (
