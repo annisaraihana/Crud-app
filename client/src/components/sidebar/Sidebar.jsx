@@ -1,19 +1,7 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Ibnu from "../../assets/ibnu.png"
 
 
 export default function Sidebar() {
-  const [cats, setCats] = useState([]);
-
-  useEffect(() => {
-    const getCats = async () => {
-      const res = await axios.get("/categories");
-      setCats(res.data);
-    };
-    getCats();
-  }, []);
   return (
     <div className="sidebar m-5 p-7 bg-abu-abu rounded-lg flex flex-col items-center h-[700px]">
       <div className="flex flex-col items-start">
@@ -41,16 +29,6 @@ export default function Sidebar() {
           9am-6pm WIB
         </p>
 
-      </div>
-      <div className="flex flex-col items-center mt-3">
-        <span className="m-2 p-1 w-4/5 border-y-white border-y-2 text-xs text-white font-semibold leading-5 text-center">CATEGORIES</span>
-        <ul className="mb-8 list-none">
-          {cats.map((c) => (
-            <Link to={`/?cat=${c.name}`} className="link">
-              <li className="inline-block w-1/2 mt-4 cursor-pointer">{c.name}</li>
-            </Link>
-          ))}
-        </ul>
       </div>
     </div>
   );
