@@ -1,9 +1,10 @@
-import Sidebar from "../../components/sidebar/Sidebar";
-import NavBar from "../../components/navbar/NavBar";
+import axios from "axios";
 import { useContext, useState } from "react";
 import { Context } from "../../context/Context";
-import profileimage from "../../assets/profile.png"
-import axios from "axios";
+import Sidebar from "../../components/sidebar/Sidebar";
+import NavBar from "../../components/navbar/NavBar";
+
+
 
 export default function Settings() {
   const [file, setFile] = useState(null);
@@ -13,7 +14,7 @@ export default function Settings() {
   const [success, setSuccess] = useState(false);
 
   const { user, dispatch } = useContext(Context);
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://lookist-api.vercel.app/images/";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,11 +32,11 @@ export default function Settings() {
       data.append("file", file);
       updatedUser.profilePic = filename;
       try {
-        await axios.post("http://localhost:5000/api/upload", data);
+        await axios.post("/upload", data);
       } catch (err) { }
     }
     try {
-      const res = await axios.put("http://localhost:5000s/api/users/" + user._id, updatedUser);
+      const res = await axios.put("/users/" + user._id, updatedUser);
       setSuccess(true);
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
     } catch (err) {
